@@ -1,0 +1,82 @@
+﻿@model Automotriz.Models.REPARACION
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>REPARACION</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOMBRE_COMPLETO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOMBRE_COMPLETO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL_PIEZAS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL_PIEZAS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VALOR_TOTAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VALOR_TOTAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLEADO.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLEADO.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INGRESO_VEHICULO.COLOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INGRESO_VEHICULO.COLOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REPUESTO.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REPUESTO.NOMBRE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_REPARACION }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

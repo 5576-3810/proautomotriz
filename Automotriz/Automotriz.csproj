@@ -132,6 +132,8 @@
     <Compile Include="Controllers\EMPLEADOesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MARCAsController.cs" />
+    <Compile Include="Controllers\REPARACIONsController.cs" />
+    <Compile Include="Controllers\REPUESTOesController.cs" />
     <Compile Include="Controllers\TALLERsController.cs" />
     <Compile Include="Controllers\USUARIOsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -259,6 +261,16 @@
     <Content Include="Views\TALLERs\Details.cshtml" />
     <Content Include="Views\TALLERs\Edit.cshtml" />
     <Content Include="Views\TALLERs\Index.cshtml" />
+    <Content Include="Views\REPARACIONs\Create.cshtml" />
+    <Content Include="Views\REPARACIONs\Delete.cshtml" />
+    <Content Include="Views\REPARACIONs\Details.cshtml" />
+    <Content Include="Views\REPARACIONs\Edit.cshtml" />
+    <Content Include="Views\REPARACIONs\Index.cshtml" />
+    <Content Include="Views\REPUESTOes\Create.cshtml" />
+    <Content Include="Views\REPUESTOes\Delete.cshtml" />
+    <Content Include="Views\REPUESTOes\Details.cshtml" />
+    <Content Include="Views\REPUESTOes\Edit.cshtml" />
+    <Content Include="Views\REPUESTOes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
