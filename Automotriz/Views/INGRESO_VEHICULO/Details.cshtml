@@ -1,0 +1,90 @@
+﻿@model Automotriz.Models.INGRESO_VEHICULO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>INGRESO_VEHICULO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.COLOR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COLOR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MODELO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MODELO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLACA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PLACA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_INGRESO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_INGRESO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_ING)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_ING)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLIENTE.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLIENTE.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MARCA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MARCA.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TALLER.NOMBRE_TALLER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TALLER.NOMBRE_TALLER)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_INGRESO }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

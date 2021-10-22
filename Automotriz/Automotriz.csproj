@@ -131,6 +131,7 @@
     <Compile Include="Controllers\CLIENTEsController.cs" />
     <Compile Include="Controllers\EMPLEADOesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\INGRESO_VEHICULOController.cs" />
     <Compile Include="Controllers\MARCAsController.cs" />
     <Compile Include="Controllers\REPARACIONsController.cs" />
     <Compile Include="Controllers\REPUESTOesController.cs" />
@@ -271,6 +272,11 @@
     <Content Include="Views\REPUESTOes\Details.cshtml" />
     <Content Include="Views\REPUESTOes\Edit.cshtml" />
     <Content Include="Views\REPUESTOes\Index.cshtml" />
+    <Content Include="Views\INGRESO_VEHICULO\Create.cshtml" />
+    <Content Include="Views\INGRESO_VEHICULO\Delete.cshtml" />
+    <Content Include="Views\INGRESO_VEHICULO\Details.cshtml" />
+    <Content Include="Views\INGRESO_VEHICULO\Edit.cshtml" />
+    <Content Include="Views\INGRESO_VEHICULO\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
