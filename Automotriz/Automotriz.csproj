@@ -128,7 +128,11 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CLIENTEsController.cs" />
+    <Compile Include="Controllers\EMPLEADOesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MARCAsController.cs" />
+    <Compile Include="Controllers\TALLERsController.cs" />
     <Compile Include="Controllers\USUARIOsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -235,6 +239,26 @@
     <Content Include="Views\USUARIOs\Details.cshtml" />
     <Content Include="Views\USUARIOs\Edit.cshtml" />
     <Content Include="Views\USUARIOs\Index.cshtml" />
+    <Content Include="Views\CLIENTEs\Create.cshtml" />
+    <Content Include="Views\CLIENTEs\Delete.cshtml" />
+    <Content Include="Views\CLIENTEs\Details.cshtml" />
+    <Content Include="Views\CLIENTEs\Edit.cshtml" />
+    <Content Include="Views\CLIENTEs\Index.cshtml" />
+    <Content Include="Views\EMPLEADOes\Create.cshtml" />
+    <Content Include="Views\EMPLEADOes\Delete.cshtml" />
+    <Content Include="Views\EMPLEADOes\Details.cshtml" />
+    <Content Include="Views\EMPLEADOes\Edit.cshtml" />
+    <Content Include="Views\EMPLEADOes\Index.cshtml" />
+    <Content Include="Views\MARCAs\Create.cshtml" />
+    <Content Include="Views\MARCAs\Delete.cshtml" />
+    <Content Include="Views\MARCAs\Details.cshtml" />
+    <Content Include="Views\MARCAs\Edit.cshtml" />
+    <Content Include="Views\MARCAs\Index.cshtml" />
+    <Content Include="Views\TALLERs\Create.cshtml" />
+    <Content Include="Views\TALLERs\Delete.cshtml" />
+    <Content Include="Views\TALLERs\Details.cshtml" />
+    <Content Include="Views\TALLERs\Edit.cshtml" />
+    <Content Include="Views\TALLERs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
