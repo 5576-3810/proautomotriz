@@ -132,41 +132,47 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CLIENTE.cs">
+      <DependentUpon>ModelAuto.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\EMPLEADO.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\INGRESO_VEHICULO.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelBD.Context.cs">
+    <Compile Include="Models\MARCA.cs">
+      <DependentUpon>ModelAuto.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelAuto.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBD.Context.tt</DependentUpon>
+      <DependentUpon>ModelAuto.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelBD.cs">
+    <Compile Include="Models\ModelAuto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ModelBD.Designer.cs">
+    <Compile Include="Models\ModelAuto.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ModelBD.edmx</DependentUpon>
+      <DependentUpon>ModelAuto.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\REPARACION.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\REPUESTO.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SERVICIO.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TALLER.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\USUARIO.cs">
-      <DependentUpon>ModelBD.tt</DependentUpon>
+      <DependentUpon>ModelAuto.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -179,24 +185,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ModelBD.Context.tt">
+    <Content Include="Models\ModelAuto.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelBD.edmx</DependentUpon>
-      <LastGenOutput>ModelBD.Context.cs</LastGenOutput>
+      <DependentUpon>ModelAuto.edmx</DependentUpon>
+      <LastGenOutput>ModelAuto.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ModelBD.tt">
+    <Content Include="Models\ModelAuto.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelBD.edmx</DependentUpon>
-      <LastGenOutput>ModelBD.cs</LastGenOutput>
+      <DependentUpon>ModelAuto.edmx</DependentUpon>
+      <LastGenOutput>ModelAuto.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\ModelBD.edmx">
+    <EntityDeploy Include="Models\ModelAuto.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ModelBD.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModelAuto.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ModelBD.edmx.diagram">
-      <DependentUpon>ModelBD.edmx</DependentUpon>
+    <Content Include="Models\ModelAuto.edmx.diagram">
+      <DependentUpon>ModelAuto.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />

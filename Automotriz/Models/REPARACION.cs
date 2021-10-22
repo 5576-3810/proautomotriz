@@ -14,14 +14,18 @@ namespace Automotriz.Models
     
     public partial class REPARACION
     {
-        public int ID_ASIG { get; set; }
+        public int ID_REPARACION { get; set; }
         public Nullable<int> ID_INGRESO { get; set; }
         public string DESCRIPCION { get; set; }
         public string NOMBRE_COMPLETO { get; set; }
-        public Nullable<int> MANO_DE_OBRA { get; set; }
+        public Nullable<int> ID_EMPLEADO { get; set; }
         public Nullable<int> TOTAL_PIEZAS { get; set; }
         public Nullable<int> VALOR_TOTAL { get; set; }
+        public Nullable<int> ID_REPUESTO { get; set; }
+        public Nullable<System.DateTime> FECHA { get; set; }
     
+        public virtual EMPLEADO EMPLEADO { get; set; }
         public virtual INGRESO_VEHICULO INGRESO_VEHICULO { get; set; }
+        public virtual REPUESTO REPUESTO { get; set; }
     }
 }

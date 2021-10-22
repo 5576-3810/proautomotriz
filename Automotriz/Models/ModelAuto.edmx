@@ -1,0 +1,568 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="carrosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+          <Property Name="APELLIDO" Type="varchar" MaxLength="100" />
+          <Property Name="TELEFONO" Type="int" />
+          <Property Name="LOCACION" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="ID_EMPLEADO" />
+          </Key>
+          <Property Name="ID_EMPLEADO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="APELLIDO" Type="varchar" MaxLength="50" />
+          <Property Name="ROL" Type="varchar" MaxLength="50" />
+          <Property Name="HORARIO" Type="varchar" MaxLength="80" />
+          <Property Name="TELEFONO" Type="int" />
+          <Property Name="DIRECCION" Type="varchar" MaxLength="100" />
+          <Property Name="CIUDAD" Type="varchar" MaxLength="80" />
+          <Property Name="DPI" Type="int" />
+        </EntityType>
+        <EntityType Name="INGRESO_VEHICULO">
+          <Key>
+            <PropertyRef Name="ID_INGRESO" />
+          </Key>
+          <Property Name="ID_INGRESO" Type="int" Nullable="false" />
+          <Property Name="ID_CLIENTE" Type="int" />
+          <Property Name="ID_MARCA" Type="int" />
+          <Property Name="COLOR" Type="varchar" MaxLength="80" />
+          <Property Name="MODELO" Type="varchar" MaxLength="80" />
+          <Property Name="PLACA" Type="varchar" MaxLength="80" />
+          <Property Name="FECHA_INGRESO" Type="date" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="200" />
+          <Property Name="ID_TALLER" Type="int" />
+          <Property Name="FECHA_ING" Type="date" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="ID_MARCA" />
+          </Key>
+          <Property Name="ID_MARCA" Type="int" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="REPARACION">
+          <Key>
+            <PropertyRef Name="ID_REPARACION" />
+          </Key>
+          <Property Name="ID_REPARACION" Type="int" Nullable="false" />
+          <Property Name="ID_INGRESO" Type="int" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="200" />
+          <Property Name="NOMBRE_COMPLETO" Type="varchar" MaxLength="100" />
+          <Property Name="ID_EMPLEADO" Type="int" />
+          <Property Name="TOTAL_PIEZAS" Type="int" />
+          <Property Name="VALOR_TOTAL" Type="int" />
+          <Property Name="ID_REPUESTO" Type="int" />
+          <Property Name="FECHA" Type="date" />
+        </EntityType>
+        <EntityType Name="REPUESTO">
+          <Key>
+            <PropertyRef Name="ID_REPUESTO" />
+          </Key>
+          <Property Name="ID_REPUESTO" Type="int" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+          <Property Name="DESCRIPCION" Type="varchar" MaxLength="80" />
+          <Property Name="ESTADO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PRECIO" Type="int" />
+          <Property Name="DETALLE" Type="varchar" MaxLength="80" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TALLER">
+          <Key>
+            <PropertyRef Name="ID_TALLER" />
+          </Key>
+          <Property Name="ID_TALLER" Type="int" Nullable="false" />
+          <Property Name="NOMBRE_TALLER" Type="varchar" MaxLength="100" />
+          <Property Name="CIUDAD" Type="varchar" MaxLength="200" />
+          <Property Name="LOCACION" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="NOMBRE" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="CONTRASENA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__INGRESO_V__ID_CL__2C3393D0">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INGRESO_V__ID_MA__2D27B809">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="ID_MARCA" />
+            </Principal>
+            <Dependent Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_MARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INGRESO_V__ID_TA__2E1BDC42">
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="0..1" />
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLER">
+              <PropertyRef Name="ID_TALLER" />
+            </Principal>
+            <Dependent Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_TALLER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPARACIO__ID_EM__35BCFE0A">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="REPARACION" Type="Self.REPARACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="ID_EMPLEADO" />
+            </Principal>
+            <Dependent Role="REPARACION">
+              <PropertyRef Name="ID_EMPLEADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPARACIO__ID_IN__38996AB5">
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="0..1" />
+          <End Role="REPARACION" Type="Self.REPARACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_INGRESO" />
+            </Principal>
+            <Dependent Role="REPARACION">
+              <PropertyRef Name="ID_INGRESO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPARACIO__ID_RE__37A5467C">
+          <End Role="REPUESTO" Type="Self.REPUESTO" Multiplicity="0..1" />
+          <End Role="REPARACION" Type="Self.REPARACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTO">
+              <PropertyRef Name="ID_REPUESTO" />
+            </Principal>
+            <Dependent Role="REPARACION">
+              <PropertyRef Name="ID_REPUESTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="carrosModelStoreContainer">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="INGRESO_VEHICULO" EntityType="Self.INGRESO_VEHICULO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MARCA" EntityType="Self.MARCA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPARACION" EntityType="Self.REPARACION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REPUESTO" EntityType="Self.REPUESTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TALLER" EntityType="Self.TALLER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__INGRESO_V__ID_CL__2C3393D0" Association="Self.FK__INGRESO_V__ID_CL__2C3393D0">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INGRESO_V__ID_MA__2D27B809" Association="Self.FK__INGRESO_V__ID_MA__2D27B809">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INGRESO_V__ID_TA__2E1BDC42" Association="Self.FK__INGRESO_V__ID_TA__2E1BDC42">
+            <End Role="TALLER" EntitySet="TALLER" />
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPARACIO__ID_EM__35BCFE0A" Association="Self.FK__REPARACIO__ID_EM__35BCFE0A">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="REPARACION" EntitySet="REPARACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPARACIO__ID_IN__38996AB5" Association="Self.FK__REPARACIO__ID_IN__38996AB5">
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+            <End Role="REPARACION" EntitySet="REPARACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPARACIO__ID_RE__37A5467C" Association="Self.FK__REPARACIO__ID_RE__37A5467C">
+            <End Role="REPUESTO" EntitySet="REPUESTO" />
+            <End Role="REPARACION" EntitySet="REPARACION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="carrosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="ID_CLIENTE" />
+          </Key>
+          <Property Name="ID_CLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="Int32" />
+          <Property Name="LOCACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INGRESO_VEHICULO" Relationship="Self.FK__INGRESO_V__ID_CL__2C3393D0" FromRole="CLIENTE" ToRole="INGRESO_VEHICULO" />
+        </EntityType>
+        <EntityType Name="EMPLEADO">
+          <Key>
+            <PropertyRef Name="ID_EMPLEADO" />
+          </Key>
+          <Property Name="ID_EMPLEADO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="APELLIDO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ROL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="HORARIO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="TELEFONO" Type="Int32" />
+          <Property Name="DIRECCION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CIUDAD" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="DPI" Type="Int32" />
+          <NavigationProperty Name="REPARACION" Relationship="Self.FK__REPARACIO__ID_EM__35BCFE0A" FromRole="EMPLEADO" ToRole="REPARACION" />
+        </EntityType>
+        <EntityType Name="INGRESO_VEHICULO">
+          <Key>
+            <PropertyRef Name="ID_INGRESO" />
+          </Key>
+          <Property Name="ID_INGRESO" Type="Int32" Nullable="false" />
+          <Property Name="ID_CLIENTE" Type="Int32" />
+          <Property Name="ID_MARCA" Type="Int32" />
+          <Property Name="COLOR" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="MODELO" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="PLACA" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_INGRESO" Type="DateTime" Precision="0" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ID_TALLER" Type="Int32" />
+          <Property Name="FECHA_ING" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK__INGRESO_V__ID_CL__2C3393D0" FromRole="INGRESO_VEHICULO" ToRole="CLIENTE" />
+          <NavigationProperty Name="MARCA" Relationship="Self.FK__INGRESO_V__ID_MA__2D27B809" FromRole="INGRESO_VEHICULO" ToRole="MARCA" />
+          <NavigationProperty Name="TALLER" Relationship="Self.FK__INGRESO_V__ID_TA__2E1BDC42" FromRole="INGRESO_VEHICULO" ToRole="TALLER" />
+          <NavigationProperty Name="REPARACION" Relationship="Self.FK__REPARACIO__ID_IN__38996AB5" FromRole="INGRESO_VEHICULO" ToRole="REPARACION" />
+        </EntityType>
+        <EntityType Name="MARCA">
+          <Key>
+            <PropertyRef Name="ID_MARCA" />
+          </Key>
+          <Property Name="ID_MARCA" Type="Int32" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INGRESO_VEHICULO" Relationship="Self.FK__INGRESO_V__ID_MA__2D27B809" FromRole="MARCA" ToRole="INGRESO_VEHICULO" />
+        </EntityType>
+        <EntityType Name="REPARACION">
+          <Key>
+            <PropertyRef Name="ID_REPARACION" />
+          </Key>
+          <Property Name="ID_REPARACION" Type="Int32" Nullable="false" />
+          <Property Name="ID_INGRESO" Type="Int32" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE_COMPLETO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ID_EMPLEADO" Type="Int32" />
+          <Property Name="TOTAL_PIEZAS" Type="Int32" />
+          <Property Name="VALOR_TOTAL" Type="Int32" />
+          <Property Name="ID_REPUESTO" Type="Int32" />
+          <Property Name="FECHA" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="EMPLEADO" Relationship="Self.FK__REPARACIO__ID_EM__35BCFE0A" FromRole="REPARACION" ToRole="EMPLEADO" />
+          <NavigationProperty Name="INGRESO_VEHICULO" Relationship="Self.FK__REPARACIO__ID_IN__38996AB5" FromRole="REPARACION" ToRole="INGRESO_VEHICULO" />
+          <NavigationProperty Name="REPUESTO" Relationship="Self.FK__REPARACIO__ID_RE__37A5467C" FromRole="REPARACION" ToRole="REPUESTO" />
+        </EntityType>
+        <EntityType Name="REPUESTO">
+          <Key>
+            <PropertyRef Name="ID_REPUESTO" />
+          </Key>
+          <Property Name="ID_REPUESTO" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PRECIO" Type="Int32" />
+          <Property Name="DETALLE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="REPARACION" Relationship="Self.FK__REPARACIO__ID_RE__37A5467C" FromRole="REPUESTO" ToRole="REPARACION" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TALLER">
+          <Key>
+            <PropertyRef Name="ID_TALLER" />
+          </Key>
+          <Property Name="ID_TALLER" Type="Int32" Nullable="false" />
+          <Property Name="NOMBRE_TALLER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CIUDAD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LOCACION" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="INGRESO_VEHICULO" Relationship="Self.FK__INGRESO_V__ID_TA__2E1BDC42" FromRole="TALLER" ToRole="INGRESO_VEHICULO" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="NOMBRE" />
+          </Key>
+          <Property Name="NOMBRE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTRASENA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK__INGRESO_V__ID_CL__2C3393D0">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="0..1" />
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Principal>
+            <Dependent Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_CLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPARACIO__ID_EM__35BCFE0A">
+          <End Role="EMPLEADO" Type="Self.EMPLEADO" Multiplicity="0..1" />
+          <End Role="REPARACION" Type="Self.REPARACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADO">
+              <PropertyRef Name="ID_EMPLEADO" />
+            </Principal>
+            <Dependent Role="REPARACION">
+              <PropertyRef Name="ID_EMPLEADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INGRESO_V__ID_MA__2D27B809">
+          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MARCA">
+              <PropertyRef Name="ID_MARCA" />
+            </Principal>
+            <Dependent Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_MARCA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__INGRESO_V__ID_TA__2E1BDC42">
+          <End Role="TALLER" Type="Self.TALLER" Multiplicity="0..1" />
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TALLER">
+              <PropertyRef Name="ID_TALLER" />
+            </Principal>
+            <Dependent Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_TALLER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPARACIO__ID_IN__38996AB5">
+          <End Role="INGRESO_VEHICULO" Type="Self.INGRESO_VEHICULO" Multiplicity="0..1" />
+          <End Role="REPARACION" Type="Self.REPARACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="INGRESO_VEHICULO">
+              <PropertyRef Name="ID_INGRESO" />
+            </Principal>
+            <Dependent Role="REPARACION">
+              <PropertyRef Name="ID_INGRESO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__REPARACIO__ID_RE__37A5467C">
+          <End Role="REPUESTO" Type="Self.REPUESTO" Multiplicity="0..1" />
+          <End Role="REPARACION" Type="Self.REPARACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REPUESTO">
+              <PropertyRef Name="ID_REPUESTO" />
+            </Principal>
+            <Dependent Role="REPARACION">
+              <PropertyRef Name="ID_REPUESTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="carrosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="EMPLEADO" EntityType="Self.EMPLEADO" />
+          <EntitySet Name="INGRESO_VEHICULO" EntityType="Self.INGRESO_VEHICULO" />
+          <EntitySet Name="MARCA" EntityType="Self.MARCA" />
+          <EntitySet Name="REPARACION" EntityType="Self.REPARACION" />
+          <EntitySet Name="REPUESTO" EntityType="Self.REPUESTO" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TALLER" EntityType="Self.TALLER" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <AssociationSet Name="FK__INGRESO_V__ID_CL__2C3393D0" Association="Self.FK__INGRESO_V__ID_CL__2C3393D0">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPARACIO__ID_EM__35BCFE0A" Association="Self.FK__REPARACIO__ID_EM__35BCFE0A">
+            <End Role="EMPLEADO" EntitySet="EMPLEADO" />
+            <End Role="REPARACION" EntitySet="REPARACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INGRESO_V__ID_MA__2D27B809" Association="Self.FK__INGRESO_V__ID_MA__2D27B809">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__INGRESO_V__ID_TA__2E1BDC42" Association="Self.FK__INGRESO_V__ID_TA__2E1BDC42">
+            <End Role="TALLER" EntitySet="TALLER" />
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPARACIO__ID_IN__38996AB5" Association="Self.FK__REPARACIO__ID_IN__38996AB5">
+            <End Role="INGRESO_VEHICULO" EntitySet="INGRESO_VEHICULO" />
+            <End Role="REPARACION" EntitySet="REPARACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK__REPARACIO__ID_RE__37A5467C" Association="Self.FK__REPARACIO__ID_RE__37A5467C">
+            <End Role="REPUESTO" EntitySet="REPUESTO" />
+            <End Role="REPARACION" EntitySet="REPARACION" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="carrosModelStoreContainer" CdmEntityContainer="carrosEntities">
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="carrosModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="LOCACION" ColumnName="LOCACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADO">
+            <EntityTypeMapping TypeName="carrosModel.EMPLEADO">
+              <MappingFragment StoreEntitySet="EMPLEADO">
+                <ScalarProperty Name="ID_EMPLEADO" ColumnName="ID_EMPLEADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO" ColumnName="APELLIDO" />
+                <ScalarProperty Name="ROL" ColumnName="ROL" />
+                <ScalarProperty Name="HORARIO" ColumnName="HORARIO" />
+                <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+                <ScalarProperty Name="DPI" ColumnName="DPI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="INGRESO_VEHICULO">
+            <EntityTypeMapping TypeName="carrosModel.INGRESO_VEHICULO">
+              <MappingFragment StoreEntitySet="INGRESO_VEHICULO">
+                <ScalarProperty Name="ID_INGRESO" ColumnName="ID_INGRESO" />
+                <ScalarProperty Name="ID_CLIENTE" ColumnName="ID_CLIENTE" />
+                <ScalarProperty Name="ID_MARCA" ColumnName="ID_MARCA" />
+                <ScalarProperty Name="COLOR" ColumnName="COLOR" />
+                <ScalarProperty Name="MODELO" ColumnName="MODELO" />
+                <ScalarProperty Name="PLACA" ColumnName="PLACA" />
+                <ScalarProperty Name="FECHA_INGRESO" ColumnName="FECHA_INGRESO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_TALLER" ColumnName="ID_TALLER" />
+                <ScalarProperty Name="FECHA_ING" ColumnName="FECHA_ING" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MARCA">
+            <EntityTypeMapping TypeName="carrosModel.MARCA">
+              <MappingFragment StoreEntitySet="MARCA">
+                <ScalarProperty Name="ID_MARCA" ColumnName="ID_MARCA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPARACION">
+            <EntityTypeMapping TypeName="carrosModel.REPARACION">
+              <MappingFragment StoreEntitySet="REPARACION">
+                <ScalarProperty Name="ID_REPARACION" ColumnName="ID_REPARACION" />
+                <ScalarProperty Name="ID_INGRESO" ColumnName="ID_INGRESO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="NOMBRE_COMPLETO" ColumnName="NOMBRE_COMPLETO" />
+                <ScalarProperty Name="ID_EMPLEADO" ColumnName="ID_EMPLEADO" />
+                <ScalarProperty Name="TOTAL_PIEZAS" ColumnName="TOTAL_PIEZAS" />
+                <ScalarProperty Name="VALOR_TOTAL" ColumnName="VALOR_TOTAL" />
+                <ScalarProperty Name="ID_REPUESTO" ColumnName="ID_REPUESTO" />
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPUESTO">
+            <EntityTypeMapping TypeName="carrosModel.REPUESTO">
+              <MappingFragment StoreEntitySet="REPUESTO">
+                <ScalarProperty Name="ID_REPUESTO" ColumnName="ID_REPUESTO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+                <ScalarProperty Name="DETALLE" ColumnName="DETALLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="carrosModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TALLER">
+            <EntityTypeMapping TypeName="carrosModel.TALLER">
+              <MappingFragment StoreEntitySet="TALLER">
+                <ScalarProperty Name="ID_TALLER" ColumnName="ID_TALLER" />
+                <ScalarProperty Name="NOMBRE_TALLER" ColumnName="NOMBRE_TALLER" />
+                <ScalarProperty Name="CIUDAD" ColumnName="CIUDAD" />
+                <ScalarProperty Name="LOCACION" ColumnName="LOCACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="carrosModel.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="CONTRASENA" ColumnName="CONTRASENA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

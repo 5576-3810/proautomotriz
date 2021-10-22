@@ -12,29 +12,18 @@ namespace Automotriz.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class INGRESO_VEHICULO
+    public partial class MARCA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public INGRESO_VEHICULO()
+        public MARCA()
         {
-            this.REPARACION = new HashSet<REPARACION>();
+            this.INGRESO_VEHICULO = new HashSet<INGRESO_VEHICULO>();
         }
     
-        public int ID_INGRESO { get; set; }
-        public Nullable<int> ID_CLIENTE { get; set; }
-        public Nullable<int> ID_MARCA { get; set; }
-        public string COLOR { get; set; }
-        public string MODELO { get; set; }
-        public string PLACA { get; set; }
-        public Nullable<System.DateTime> FECHA_INGRESO { get; set; }
+        public int ID_MARCA { get; set; }
         public string DESCRIPCION { get; set; }
-        public Nullable<int> ID_TALLER { get; set; }
-        public Nullable<System.DateTime> FECHA_ING { get; set; }
     
-        public virtual CLIENTE CLIENTE { get; set; }
-        public virtual MARCA MARCA { get; set; }
-        public virtual TALLER TALLER { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REPARACION> REPARACION { get; set; }
+        public virtual ICollection<INGRESO_VEHICULO> INGRESO_VEHICULO { get; set; }
     }
 }

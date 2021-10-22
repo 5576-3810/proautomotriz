@@ -20,7 +20,7 @@ namespace Automotriz.Models
             this.INGRESO_VEHICULO = new HashSet<INGRESO_VEHICULO>();
         }
     
-        public Nullable<int> ID_TALLER { get; set; }
+        public int ID_TALLER { get; set; }
         public string NOMBRE_TALLER { get; set; }
         public string CIUDAD { get; set; }
         public string LOCACION { get; set; }

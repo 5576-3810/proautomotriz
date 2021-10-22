@@ -13,10 +13,10 @@ namespace Automotriz.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class AUTOMOTRIZEntities1 : DbContext
+    public partial class carrosEntities : DbContext
     {
-        public AUTOMOTRIZEntities1()
-            : base("name=AUTOMOTRIZEntities1")
+        public carrosEntities()
+            : base("name=carrosEntities")
         {
         }
     
@@ -25,12 +25,14 @@ namespace Automotriz.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<EMPLEADO> EMPLEADOes { get; set; }
+        public virtual DbSet<CLIENTE> CLIENTE { get; set; }
+        public virtual DbSet<EMPLEADO> EMPLEADO { get; set; }
         public virtual DbSet<INGRESO_VEHICULO> INGRESO_VEHICULO { get; set; }
-        public virtual DbSet<REPARACION> REPARACIONs { get; set; }
-        public virtual DbSet<REPUESTO> REPUESTOes { get; set; }
-        public virtual DbSet<SERVICIO> SERVICIOs { get; set; }
-        public virtual DbSet<TALLER> TALLERs { get; set; }
-        public virtual DbSet<USUARIO> USUARIOs { get; set; }
+        public virtual DbSet<MARCA> MARCA { get; set; }
+        public virtual DbSet<REPARACION> REPARACION { get; set; }
+        public virtual DbSet<REPUESTO> REPUESTO { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TALLER> TALLER { get; set; }
+        public virtual DbSet<USUARIO> USUARIO { get; set; }
     }
 }

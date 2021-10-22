@@ -12,25 +12,21 @@ namespace Automotriz.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EMPLEADO
+    public partial class CLIENTE
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EMPLEADO()
+        public CLIENTE()
         {
-            this.REPARACION = new HashSet<REPARACION>();
+            this.INGRESO_VEHICULO = new HashSet<INGRESO_VEHICULO>();
         }
     
-        public int ID_EMPLEADO { get; set; }
+        public int ID_CLIENTE { get; set; }
         public string NOMBRE { get; set; }
         public string APELLIDO { get; set; }
-        public string ROL { get; set; }
-        public string HORARIO { get; set; }
         public Nullable<int> TELEFONO { get; set; }
-        public string DIRECCION { get; set; }
-        public string CIUDAD { get; set; }
-        public Nullable<int> DPI { get; set; }
+        public string LOCACION { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<REPARACION> REPARACION { get; set; }
+        public virtual ICollection<INGRESO_VEHICULO> INGRESO_VEHICULO { get; set; }
     }
 }

@@ -14,10 +14,20 @@ namespace Automotriz.Models
     
     public partial class REPUESTO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public REPUESTO()
+        {
+            this.REPARACION = new HashSet<REPARACION>();
+        }
+    
         public int ID_REPUESTO { get; set; }
         public string NOMBRE { get; set; }
         public string DESCRIPCION { get; set; }
         public string ESTADO { get; set; }
         public Nullable<int> PRECIO { get; set; }
+        public string DETALLE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<REPARACION> REPARACION { get; set; }
     }
 }
