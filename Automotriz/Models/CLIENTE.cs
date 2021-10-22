@@ -25,6 +25,8 @@ namespace Automotriz.Models
         public string APELLIDO { get; set; }
         public Nullable<int> TELEFONO { get; set; }
         public string LOCACION { get; set; }
+
+        //Se modifico la arquitectura 
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<INGRESO_VEHICULO> INGRESO_VEHICULO { get; set; }
