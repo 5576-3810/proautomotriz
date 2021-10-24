@@ -20,6 +20,12 @@ namespace Automotriz.Controllers
             return View();
         }
 
+        public ActionResult Menu()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
