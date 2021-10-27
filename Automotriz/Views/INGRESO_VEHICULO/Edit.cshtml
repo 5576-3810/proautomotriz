@@ -1,10 +1,10 @@
 ﻿@model Automotriz.Models.INGRESO_VEHICULO
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "EDITAR INGRESO DE VEHICULO";
 }
 
-<h2>Edit</h2>
+    <h2>EDICION DE INGRESO DE VEHICULO</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>INGRESO_VEHICULO</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.ID_INGRESO)
@@ -91,14 +90,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="GUARDAR" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("REGRESAR", "Index")
 </div>
 
 @section Scripts {

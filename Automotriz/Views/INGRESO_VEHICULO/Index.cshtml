@@ -1,81 +1,177 @@
 ﻿@model IEnumerable<Automotriz.Models.INGRESO_VEHICULO>
 
+@Styles.Render("~/bundles/css")
+@Scripts.Render("~/bundles/script")
+
+@*<style>
+        .table-striped tbody tr:nth-child(odd) td,
+        .table-striped tbody tr:nth-child(odd) th {
+            background-color: #D8D8D8;
+        }
+    </style>*@
+
 @{
-    ViewBag.Title = "Index";
+    <title>Ingreso de Vehiculo</title>
+
 }
 
-<h2>Index</h2>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+        </div><!-- /.col -->
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header with-border">
+                    <p>
+                        @Html.ActionLink("Ingresar Nuevo Vehiculo", "Create")
+                    </p>
+                </div><!-- /.box-header -->
+                <div class="box-body no-padding">
+                    <div class="table-responsive mailbox-messages">
+                        <table id="tblCargo" class="table table-striped table-bordered dt-responsive display">
+                            <thead>
+                                <tr>
+                                    <th nowrap>
+                                        @Html.DisplayName("Color")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Modelo")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Placa")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Fecha Asignacion")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Descripcion")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Fecha de Ingreso")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Nombre del Cliente")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Marca")
+                                    </th>
+                                    <th nowrap>
+                                        @Html.DisplayName("Nombre Taller")
+                                    </th>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.COLOR)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MODELO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PLACA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_INGRESO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DESCRIPCION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FECHA_ING)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLIENTE.NOMBRE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MARCA.DESCRIPCION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TALLER.NOMBRE_TALLER)
-        </th>
-        <th></th>
-    </tr>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td nowrap>
+                                        @item.COLOR
+                                    </td>
+                                    <td nowrap>
+                                        @item.MODELO
+                                    </td>
+                                    <td nowrap>
+                                        @item.PLACA
+                                    </td>
+                                    <td nowrap>
+                                        @item.FECHA_INGRESO
+                                    </td>
+                                    <td nowrap>
+                                        @item.DESCRIPCION
+                                    </td>
+                                    <td nowrap>
+                                        @item.FECHA_ING
+                                    </td>
+                                    <td nowrap>
+                                        @Html.DisplayFor(modelItem => item.CLIENTE.NOMBRE)
+                                    </td>
+                                    <td nowrap>
+                                        @Html.DisplayNameFor(model => model.MARCA.DESCRIPCION)
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.COLOR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MODELO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PLACA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_INGRESO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FECHA_ING)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLIENTE.NOMBRE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MARCA.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TALLER.NOMBRE_TALLER)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID_INGRESO }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID_INGRESO }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID_INGRESO })
-        </td>
-    </tr>
-}
+                                    </td>
+                                    <td nowrap>
+                                        @Html.DisplayNameFor(model => model.TALLER.NOMBRE_TALLER)
 
-</table>
+                                    </td>
+
+
+
+
+                                    <td nowrap>
+                                        <button title="Editar" onclick="location.href='@Url.Action("Edit", new { id = item.ID_INGRESO })';return false;" class="btn btn-default btn-sm"><i class="fa fa-pencil">Editar</i></button>
+                                        <button title="Detalles" onclick="location.href='@Url.Action("Details", new { id = item.ID_INGRESO })'; return false;" class="btn btn-default btn-sm"><i class="fa fa-list">Detalles</i></button>
+                                        <button title="Eliminar" onclick="location.href='@Url.Action("Delete", new { id = item.ID_INGRESO })'; return false;" class="btn btn-default btn-sm"><i class="fa fa-trash-o">Eliminar</i></button>
+                                    </td>
+                                </tr>
+                                }
+                            </tbody>
+
+
+                        </table><!-- /.table -->
+                        <div>
+                            @Html.ActionLink("Regresar", "Index", "Home")
+                        </div>
+                    </div><!-- /.mail-box-messages -->
+                </div><!-- /.box-body -->
+            </div><!-- /. box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#tblCargo').DataTable({
+            "destroy": true,
+            "data": null,
+            scrollX:true,
+            "order": [[0, "asc"]],
+            responsive: "true",
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'copyHtml5',
+                    text: '<button class="btn btn-secondary"><i class="fa fa-files-o"></i></button>',
+                    titleAttr: 'Copiar'
+                },
+                {
+                    extend: 'excelHtml5',
+                    text: '<button class="btn btn-success"><i class="fa fa-file-excel-o" aria-hidden="true"></i></button>',
+                    titleAttr: 'Exportar Excel'
+                },
+                {
+                    extend: 'csvHtml5',
+                    text: '<button class="btn btn-primary"><i class="fa fa-file-text-o"></i></button>',
+                    titleAttr: 'Exportar CSV'
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: '<button class="btn btn-danger"><i class="fa fa-file-pdf-o" aria-hidden="true"></i></button>',
+                    titleAttr: 'Exportar PDF'
+                },
+                {
+                    extend: 'print',
+                    text: '<button class="btn btn-info"><i class="fa fa-print" aria-hidden="true"></i></button>',
+                    titleAttr: 'Imprimir'
+                }
+            ],
+            language: {
+                "lengthMenu": "Mostrar _MENU_ registros",
+                "zeroRecords": "No se encontraron resultados",
+                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "bFilter": true,
+                "sSearch": "Buscar:",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": "Siguiente",
+                    "sPrevious": "Anterior"
+                },
+                "sProcessing": "Procesando...",
+            },
+            //Esto se utiliza para quitar el ordenamiento automatico
+            "aaSorting": []
+        });
+    });
+</script>

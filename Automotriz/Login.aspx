@@ -10,6 +10,9 @@
         body{
             text-align:center;
         }
+        .auto-style1 {
+            width: 952px;
+        }
     </style>
 </head>
 
@@ -19,13 +22,16 @@
         <div>
 
              <table border="1" >
-    <caption>
-        <asp:Label ID="Label3" runat="server" ForeColor="White" Text="Iniciar Sesion en el sistema"></asp:Label>
-                 </caption>
+                 <tr>
+                     <td class="auto-style1">
+                         <asp:Label ID="Label3" runat="server" ForeColor="White" Text="Iniciar Sesion en el sistema"></asp:Label>
+                     </td>
+                 </tr>
+    <caption></caption>
     <tbody>
     
       <tr>
-        <td>
+        <td class="auto-style1">
 
               <asp:Label ID="Label1" runat="server" Text="Usuario" ForeColor="White"></asp:Label>
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
