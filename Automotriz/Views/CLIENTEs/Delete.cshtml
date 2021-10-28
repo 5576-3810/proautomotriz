@@ -1,14 +1,14 @@
 ﻿@model Automotriz.Models.CLIENTE
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "ELIMINACION DE CLIENTE";
 }
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>ESTA SEGURO DE ELIMINAR ESTE CLIENTE?</h3>
 <div>
-    <h4>CLIENTE</h4>
+    <h4>EL CLIENTE ES:</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -49,8 +49,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="CONFIRMAR" class="btn btn-default" /> |
+            @Html.ActionLink("REGRESAR", "Index")
         </div>
     }
 </div>

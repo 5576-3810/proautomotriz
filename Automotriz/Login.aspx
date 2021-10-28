@@ -13,6 +13,10 @@
         .auto-style1 {
             width: 952px;
         }
+        .auto-style2 {
+            width: 952px;
+            height: 164px;
+        }
     </style>
 </head>
 
@@ -31,13 +35,13 @@
     <tbody>
     
       <tr>
-        <td class="auto-style1">
+        <td class="auto-style2">
 
               <asp:Label ID="Label1" runat="server" Text="Usuario" ForeColor="White"></asp:Label>
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
             <br />
-               <br />
-            <asp:Label ID="Label2" runat="server" Text="Password" ForeColor="White"></asp:Label>
+               <br style="font-family: 'Arial Black'" />
+            <asp:Label ID="Label2" runat="server" Text="Contraseña" ForeColor="White"></asp:Label>
             <asp:TextBox  ID="txtPassword"  runat="server" Textmode="Password" ></asp:TextBox>
             <br />
                <br />

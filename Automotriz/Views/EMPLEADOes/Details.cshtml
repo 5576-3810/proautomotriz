@@ -1,13 +1,12 @@
 ﻿@model Automotriz.Models.EMPLEADO
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "DETALLADO DE EMPLEADO";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>EMPLEADO</h4>
+    <h4>EMPLEADO: </h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -77,6 +76,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_EMPLEADO }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_EMPLEADO }) |
+    @Html.ActionLink("REGRESAR", "Index")
 </p>

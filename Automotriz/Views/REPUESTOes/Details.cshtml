@@ -1,7 +1,7 @@
 ﻿@model Automotriz.Models.REPUESTO
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "DETALLES DE REPUESTO";
 }
 
 <h2>Details</h2>
@@ -42,17 +42,9 @@
             @Html.DisplayFor(model => model.PRECIO)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DETALLE)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DETALLE)
-        </dd>
-
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_REPUESTO }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Edit", new { id = Model.ID_REPUESTO }) |
+    @Html.ActionLink("REGRESAR A REPUESTOS", "Index")
 </p>
