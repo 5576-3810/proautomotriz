@@ -53,10 +53,7 @@
                                         @Html.DisplayName("Nombre del Cliente")
                                     </th>
                                     <th nowrap>
-                                        @Html.DisplayName("Marca")
-                                    </th>
-                                    <th nowrap>
-                                        @Html.DisplayName("Nombre Taller")
+                                        @Html.DisplayName("Acciones")
                                     </th>
 
                                 </tr>
@@ -86,17 +83,7 @@
                                     <td nowrap>
                                         @Html.DisplayFor(modelItem => item.CLIENTE.NOMBRE)
                                     </td>
-                                    <td nowrap>
-                                        @Html.DisplayNameFor(model => model.MARCA.DESCRIPCION)
-
-                                    </td>
-                                    <td nowrap>
-                                        @Html.DisplayNameFor(model => model.TALLER.NOMBRE_TALLER)
-
-                                    </td>
-
-
-
+                                  
 
                                     <td nowrap>
                                         <button title="Editar" onclick="location.href='@Url.Action("Edit", new { id = item.ID_INGRESO })';return false;" class="btn btn-default btn-sm"><i class="fa fa-pencil">Editar</i></button>

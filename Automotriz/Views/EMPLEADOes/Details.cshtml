@@ -5,76 +5,79 @@
 }
 
 
-<div>
-    <h4>EMPLEADO: </h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.NOMBRE)
-        </dt>
+    <div>
+        <h4>Empleado: </h4>
+        <img src="~/Scripts/logo4.jpeg" width="150"
+             height="100" ImageAlign="TextTop">
+        <br />
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.NOMBRE)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.NOMBRE)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.NOMBRE)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.APELLIDO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.APELLIDO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.APELLIDO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.APELLIDO)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.ROL)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.ROL)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ROL)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ROL)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.HORARIO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.HORARIO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.HORARIO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.HORARIO)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TELEFONO)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TELEFONO)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TELEFONO)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TELEFONO)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DIRECCION)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DIRECCION)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DIRECCION)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DIRECCION)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CIUDAD)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.CIUDAD)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.CIUDAD)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.CIUDAD)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DPI)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.DPI)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.DPI)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.DPI)
+            </dd>
 
-    </dl>
-</div>
+        </dl>
+    </div>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.ID_EMPLEADO }) |
     @Html.ActionLink("REGRESAR", "Index")

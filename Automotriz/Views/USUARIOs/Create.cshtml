@@ -1,16 +1,19 @@
 ﻿@model Automotriz.Models.USUARIO
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Creacion de un Nuevo Usuario";
 }
 
-<h2>Create</h2>
+
+<img src="~/Scripts/logo4.jpeg" width="150"
+     height="100" ImageAlign="TextTop">
+<br />
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>USUARIO</h4>
         <hr />
@@ -33,7 +36,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Crear Nuevo" class="btn btn-default" />
+                <input type="submit" value="Crear Nuevo Usuario" class="btn btn-default" />
             </div>
         </div>
     </div>

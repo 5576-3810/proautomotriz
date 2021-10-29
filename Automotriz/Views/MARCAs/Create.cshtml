@@ -5,12 +5,15 @@
 }
 
 <h2>Creacion de Marca</h2>
+<img src="~/Scripts/logo4.jpeg" width="150"
+     height="100" ImageAlign="TextTop">
+<br />
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
