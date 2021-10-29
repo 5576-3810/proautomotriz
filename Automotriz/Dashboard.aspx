@@ -6,13 +6,22 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+     <style>
+        body{
+            text-align:center;
+        }
+        </style>
 </head>
-<body>
+<body style="background-image:url(Scripts/fondo.jpg); background-repeat: no-repeat; background-attachment: fixed">
     <form id="form1" runat="server">
         <div>
-            Desea Salir Realmente?<br />
+            <asp:Image id="Image1" style="border: 1px solid; color: black;" runat="server" Height="150px" ImageUrl="~/Scripts/logo4.jpeg"  Width="300px" AlternateText="Imagen no disponible" ImageAlign="TextTop" />
             <br />
-            <asp:Label ID="lblUserDetails" runat="server" Text="Usuario"></asp:Label>
+            <br />
+            <asp:Label ID="Label1" runat="server" ForeColor="White" Text="Desea Salir del sistema?"></asp:Label>
+            <br />
+            <br />
+            <asp:Label ID="lblUserDetails" runat="server" Text="Usuario" ForeColor="White"></asp:Label>
             <br />
             <asp:Button ID="btnLogout" runat="server" OnClick="btnLogout_Click" Text="Cerrar Sesion" />
             <br />

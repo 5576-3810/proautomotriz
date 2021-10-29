@@ -24,18 +24,10 @@
     <form id="form1" runat="server">
         
         <div>
-
-             <table border="1" >
-                 <tr>
-                     <td class="auto-style1">
-                         <asp:Label ID="Label3" runat="server" ForeColor="White" Text="Iniciar Sesion en el sistema"></asp:Label>
-                     </td>
-                 </tr>
-    <caption></caption>
-    <tbody>
-    
-      <tr>
-        <td class="auto-style2">
+            <asp:Image id="Image1" style="border: 1px solid; color: black;" runat="server" Height="150px" ImageUrl="~/Scripts/logo4.jpeg"  Width="300px" AlternateText="Imagen no disponible" ImageAlign="TextTop" />
+      
+     <br /> <br />
+      
 
               <asp:Label ID="Label1" runat="server" Text="Usuario" ForeColor="White"></asp:Label>
             <asp:TextBox ID="txtUserName" runat="server"></asp:TextBox>
@@ -54,11 +46,8 @@
 
 
 
-        </td>
-     
-      </tr>
-    </tbody>
-  </table>
+      
+   
             
           
                  </div>
