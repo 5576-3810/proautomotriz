@@ -20,7 +20,7 @@
             @Html.LabelFor(model => model.ID_TALLER, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ID_TALLER, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID_TALLER, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ID_TALLER, "INGRESE CORRELATIVO DEL TALLER", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -28,7 +28,7 @@
             @Html.LabelFor(model => model.NOMBRE_TALLER, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NOMBRE_TALLER, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NOMBRE_TALLER, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.NOMBRE_TALLER, "NOMBRE DEL TALLER", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -36,7 +36,7 @@
             @Html.LabelFor(model => model.CIUDAD, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.CIUDAD, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.CIUDAD, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.CIUDAD, "CIUDAD DE UBICACION", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -44,7 +44,7 @@
             @Html.LabelFor(model => model.LOCACION, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.LOCACION, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LOCACION, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.LOCACION, "DIRECCION EXACTA", new { @class = "text-danger" })
             </div>
         </div>
 

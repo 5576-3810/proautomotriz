@@ -21,7 +21,7 @@
             @Html.LabelFor(model => model.ID_MARCA, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ID_MARCA, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ID_MARCA, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.ID_MARCA, "CORRELATIVO DE MARCA", new { @class = "text-danger" })
             </div>
         </div>
 
@@ -29,7 +29,7 @@
             @Html.LabelFor(model => model.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.DESCRIPCION, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.DESCRIPCION, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.DESCRIPCION, "NOMBRE DE LA MARCA", new { @class = "text-danger" })
             </div>
         </div>
 
